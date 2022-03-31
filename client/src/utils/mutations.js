@@ -42,7 +42,6 @@ export const SAVE_BOOK = gql`
       title
       image
       link
-      }
     }
   }
 `;
