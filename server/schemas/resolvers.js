@@ -8,7 +8,8 @@ const resolvers = {
   Query: {
     me: async (parent, args) => {
       const userData = await User.findOne({ _id: context.user._id })
-        .select('-__v -password');
+        .select('-__v -password')
+        .populate('books')
     
       return userData;
     },
@@ -41,15 +42,15 @@ const resolvers = {
                
         await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedBooks: args } },
+          { $addToSet: { savedBooks: args.input } },
           { new: true, runValidators: true }
         );
         
-      return thought;
+      return updatedUser;
       }
       throw new AuthenticationError('You need to be logged in!');  
     },
-    deleteBook: async (parent, args, context) => {
+    removeBook: async (parent, args, context) => {
       if (context.user) {
                
         await User.findByIdAndUpdate(
@@ -58,7 +59,7 @@ const resolvers = {
           { new: true }
         );
             
-      return thought;
+      return updatedUser;
       }
       throw new AuthenticationError('You need to be logged in!');  
     }
