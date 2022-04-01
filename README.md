@@ -17,6 +17,36 @@ GIVEN a book search engine:
 - WHEN I click on the Logout button THEN I am logged out of the site and presented with a menu with the options Search for Books and Login/Signup and an input field to search for books and a submit button  
 
 ## Built With:
+- Node js
+  - Express
+  - Mongoose
+  - Apollo
+  - React
+- HTML
+- CSS
+- MongoDB Atlas
+- Heroku
 
 ## Application
+This application allows the user to search for books using the Google Book API and save books to their profile.
+
+### Main Page
+
+The user has the option to login or sign up for an account and search for books.
+
+### Login
+
+The user can login with their email address and password.  Once logged in the user has the option to review saved books.
+
+### Sign Up
+
+The user can create an account if they do not already have one.  Only logged in users can save and delete books from their profile.
+
+## Deployed App
+
+The application can be tested here: https://rhubarb-pudding-43621.herokuapp.com/
+
+## Demo
+
+<img src=https://github.com/texrob20/mern-google-books/blob/main/demo/google-books-demo.png>
 
